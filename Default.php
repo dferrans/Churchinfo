@@ -346,6 +346,18 @@ ob_start();
    <meta http-equiv="pragma" content="no-cache">
      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
    <link rel="stylesheet" type="text/css" href="Include/Style.css">
+   <!--bootstrap start-->
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="bootstrap/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+   <!--bootstrap end-->
    <title><?php echo gettext('ChurchInfo: Login'); ?></title>
 </head>
 <body>
@@ -386,62 +398,58 @@ ob_start();
     }
 ?>
 
-<table width="80%" border="0" cellpadding="5" cellspacing="0" align="center">
-<tr>
-    <td valign="top">
+
+
         <br>
         <p class="PageTitle"><?php echo gettext('Please Login'); ?></p>
 <?php
     if (isset($_GET['Proto']) && isset($_GET['Path'])) {
 ?>
         <form method="post" name="LoginForm" action="Default.php">
-        <table border="0" align="center" cellpadding="5">
+       
         <?php if (isset($_GET['timeout'])) { ?>
-        <tr>
-            <td align="center" colspan="2">
-            <span style="color:red; font-size:120%;">Your previous session timed out.  Please login again.</span>
-            </td>
-        </tr> <?php } ?>
+        
+            
+         Your previous session timed out.  Please login again.
+            
+         <?php } ?>
 
         <?php if (isset($sErrorText) <> '') { ?>
-        <tr>
-            <td align="center" colspan="2">
-            <span style="color:red;" id="PasswordError"><?php echo $sErrorText; ?></span>
-            </td>
-        </tr><?php } ?>
-        <tr>
-            <td class="LabelColumn"><?php echo gettext('Enter your user name:'); ?></td>
-            <td class="TextColumnWithBottomBorder">
-                <input type="text" id="UserBox" name="User" size="10">
-
-            </td>
-        </tr>
-        <tr>
-            <td class="LabelColumn"><?php echo gettext('Enter your password:'); ?></td>
-            <td class="TextColumnWithBottomBorder">
-                <input type="password" id="PasswordBox" name="Password" size="10">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-            <input type="submit" class="icButton" name="LogonSubmit" 
-             value="<?php echo gettext('Login'); ?>"></td><td>
-            <input type="hidden" name="sURLPath" 
-             value="<?php echo $_GET['Proto'] . "://" . $_GET['Path'] ?>"></td>
-        </tr>
-        </table>
+      
+           
+           <?php echo $sErrorText; ?>
+            
+        <?php } ?>
+		
+		<div class="container">
+       
+            
+           
+               
+				<input type="text" id="UserBox" autofocus="" required="" name="User" placeholder="Username" class="form-control" size="10">    
+           
+				 <input type="password" id="PasswordBox" name="Password" required="" placeholder="Password" class="form-control">
+            
+           
+         
+			 <button type="submit" class="btn btn-lg btn-primary btn-block" name="LogonSubmit" value="<?php echo gettext('Login'); ?>" >Sign in</button>
+			
+            <input type="hidden" name="sURLPath"  value="<?php echo $_GET['Proto'] . "://" . $_GET['Path'] ?>">
+       
+    
         </form>
+		</div>
 <?php
     }
 ?>
-    </td>
-</tr>
-</table>
+
+
+
 
 <script language="JavaScript" type="text/JavaScript">
     document.LoginForm.User.focus();
 </script>
-
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 

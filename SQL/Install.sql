@@ -1,101 +1,112 @@
--- Install Version 1.2.13
+-- phpMyAdmin SQL Dump
+-- version 4.1.7
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 09, 2014 at 05:19 PM
+-- Server version: 5.5.35-0ubuntu0.12.04.2
+-- PHP Version: 5.5.10-1+deb.sury.org~precise+1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `churchinfo`
+--
+
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `autopayment_aut`
--- 
+--
 
-CREATE TABLE `autopayment_aut` (
-  `aut_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `aut_FamID` mediumint(9) unsigned NOT NULL default '0',
-  `aut_EnableBankDraft` tinyint(1) unsigned NOT NULL default '0',
-  `aut_EnableCreditCard` tinyint(1) unsigned NOT NULL default '0',
-  `aut_NextPayDate` date default NULL,
-  `aut_FYID` mediumint(9) NOT NULL default '9',
-  `aut_Amount` decimal(6,2) NOT NULL default '0.00',
-  `aut_Interval` tinyint(3) NOT NULL default '1',
-  `aut_Fund` mediumint(6) NOT NULL default '0',
-  `aut_FirstName` varchar(50) default NULL,
-  `aut_LastName` varchar(50) default NULL,
-  `aut_Address1` varchar(255) default NULL,
-  `aut_Address2` varchar(255) default NULL,
-  `aut_City` varchar(50) default NULL,
-  `aut_State` varchar(50) default NULL,
-  `aut_Zip` varchar(50) default NULL,
-  `aut_Country` varchar(50) default NULL,
-  `aut_Phone` varchar(30) default NULL,
-  `aut_Email` varchar(100) default NULL,
-  `aut_CreditCard` varchar(50) default NULL,
-  `aut_ExpMonth` varchar(2) default NULL,
-  `aut_ExpYear` varchar(4) default NULL,
-  `aut_BankName` varchar(50) default NULL,
-  `aut_Route` varchar(30) default NULL,
-  `aut_Account` varchar(30) default NULL,
-  `aut_DateLastEdited` datetime default NULL,
-  `aut_EditedBy` smallint(5) unsigned default '0',
-  `aut_Serial` mediumint(9) NOT NULL default '1',
-  PRIMARY KEY  (`aut_ID`),
+CREATE TABLE IF NOT EXISTS `autopayment_aut` (
+  `aut_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `aut_FamID` mediumint(9) unsigned NOT NULL DEFAULT '0',
+  `aut_EnableBankDraft` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `aut_EnableCreditCard` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `aut_NextPayDate` date DEFAULT NULL,
+  `aut_FYID` mediumint(9) NOT NULL DEFAULT '9',
+  `aut_Amount` decimal(6,2) NOT NULL DEFAULT '0.00',
+  `aut_Interval` tinyint(3) NOT NULL DEFAULT '1',
+  `aut_Fund` mediumint(6) NOT NULL DEFAULT '0',
+  `aut_FirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_LastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Address1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_City` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_State` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Zip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Phone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_CreditCard` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_ExpMonth` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_ExpYear` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_BankName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Route` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_Account` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `aut_DateLastEdited` datetime DEFAULT NULL,
+  `aut_EditedBy` smallint(5) unsigned DEFAULT '0',
+  `aut_Serial` mediumint(9) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`aut_ID`),
   UNIQUE KEY `aut_ID` (`aut_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `autopayment_aut`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `canvassdata_can`
--- 
+--
 
-CREATE TABLE `canvassdata_can` (
-  `can_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `can_famID` mediumint(9) NOT NULL default '0',
-  `can_Canvasser` mediumint(9) NOT NULL default '0',
-  `can_FYID` mediumint(9) default NULL,
-  `can_date` date default NULL,
-  `can_Positive` text,
-  `can_Critical` text,
-  `can_Insightful` text,
-  `can_Financial` text,
-  `can_Suggestion` text,
-  `can_NotInterested` tinyint(1) NOT NULL default '0',
-  `can_WhyNotInterested` text,
-  PRIMARY KEY  (`can_ID`),
+CREATE TABLE IF NOT EXISTS `canvassdata_can` (
+  `can_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `can_famID` mediumint(9) NOT NULL DEFAULT '0',
+  `can_Canvasser` mediumint(9) NOT NULL DEFAULT '0',
+  `can_FYID` mediumint(9) DEFAULT NULL,
+  `can_date` date DEFAULT NULL,
+  `can_Positive` text COLLATE utf8_unicode_ci,
+  `can_Critical` text COLLATE utf8_unicode_ci,
+  `can_Insightful` text COLLATE utf8_unicode_ci,
+  `can_Financial` text COLLATE utf8_unicode_ci,
+  `can_Suggestion` text COLLATE utf8_unicode_ci,
+  `can_NotInterested` tinyint(1) NOT NULL DEFAULT '0',
+  `can_WhyNotInterested` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`can_ID`),
   UNIQUE KEY `can_ID` (`can_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `canvassdata_can`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `config_cfg`
--- 
+--
 
-CREATE TABLE `config_cfg` (
-  `cfg_id` int(11) NOT NULL default '0',
-  `cfg_name` varchar(50) NOT NULL default '',
-  `cfg_value` text,
-  `cfg_type` enum('text','number','date','boolean','textarea') NOT NULL default 'text',
-  `cfg_default` text NOT NULL,
-  `cfg_tooltip` text NOT NULL,
-  `cfg_section` varchar(50) NOT NULL default '',
-  `cfg_category` varchar(20) default NULL,
-  PRIMARY KEY  (`cfg_id`),
+CREATE TABLE IF NOT EXISTS `config_cfg` (
+  `cfg_id` int(11) NOT NULL DEFAULT '0',
+  `cfg_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `cfg_value` text COLLATE utf8_unicode_ci,
+  `cfg_type` enum('text','number','date','boolean','textarea') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `cfg_default` text COLLATE utf8_unicode_ci NOT NULL,
+  `cfg_tooltip` text COLLATE utf8_unicode_ci NOT NULL,
+  `cfg_section` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `cfg_category` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`cfg_id`),
   UNIQUE KEY `cfg_name` (`cfg_name`),
   KEY `cfg_id` (`cfg_id`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- 
+--
 -- Dumping data for table `config_cfg`
--- 
+--
 
-INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`, `cfg_type`, `cfg_default`, `cfg_tooltip`, `cfg_section`, `cfg_category`) VALUES 
+INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`, `cfg_type`, `cfg_default`, `cfg_tooltip`, `cfg_section`, `cfg_category`) VALUES
 (1, 'sWEBCALENDARDB', '', 'text', '', 'WebCalendar database name', 'General', NULL),
 (2, 'debug', '1', 'boolean', '1', 'Set debug mode\r\nThis may be helpful for when you''re first setting up ChurchInfo, but you should\r\nprobably turn it off for maximum security otherwise.  If you are having trouble,\r\nplease enable this so that you''ll know what the errors are.  This is especially\r\nimportant if you need to report a problem on the help forums.', 'General', NULL),
 (3, 'sJPGRAPH_PATH', 'Include/jpgraph-1.13/src', 'text', 'Include/jpgraph-1.13/src', 'JPGraph library', 'General', NULL),
@@ -193,118 +204,137 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`, `cfg_type`, `cfg_de
 (63, 'iEventPeriodIntervalMin', '15', 'number', '15', 'Event Period interval (in minutes)', 'General', NULL),
 (64, 'sDistanceUnit', 'miles', 'text', 'miles', 'Unit used to measure distance, miles or km.', 'General', NULL),
 (65, 'sTimeZone', 'America/New_York', 'text', 'America/New_York', 'Time zone- see http://php.net/manual/en/timezones.php for valid choices.', 'General', NULL),
-(66, 'sGMapIcons', 'red-dot,green-dot,purple,yellow-dot,blue-dot,orange,yellow,green,blue,red,pink,lightblue', 'text', 'red-dot,green-dot,purple,yellow-dot,blue-dot,orange,yellow,green,blue,red,pink,lightblue', 'Names of markers for Google Maps in order of classification', 'General',NULL),
---
--- bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param below
---
+(66, 'sGMapIcons', 'red-dot,green-dot,purple,yellow-dot,blue-dot,orange,yellow,green,blue,red,pink,lightblue', 'text', 'red-dot,green-dot,purple,yellow-dot,blue-dot,orange,yellow,green,blue,red,pink,lightblue', 'Names of markers for Google Maps in order of classification', 'General', NULL),
 (67, 'cfgForceUppercaseZip', '0', 'boolean', '0', 'Make user-entered zip/postcodes UPPERCASE when saving to the database. Useful in the UK.', 'General', NULL),
-
--- Save 68, 69 for MRBS if installed
--- Save 70, 71 for WebCalendar if installed
-(72, 'bEnableNonDeductible', '0', 'boolean', '0', 'Enable non-deductible payments', 'General', NULL) ;
+(72, 'bEnableNonDeductible', '0', 'boolean', '0', 'Enable non-deductible payments', 'General', NULL);
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `deposit_dep`
--- 
+--
 
-CREATE TABLE `deposit_dep` (
-  `dep_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `dep_Date` date default NULL,
-  `dep_Comment` text,
-  `dep_EnteredBy` mediumint(9) unsigned default NULL,
-  `dep_Closed` tinyint(1) NOT NULL default '0',
-  `dep_Type` enum('Bank','CreditCard','BankDraft','eGive') NOT NULL default 'Bank',
-  PRIMARY KEY  (`dep_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `deposit_dep`
--- 
-
+CREATE TABLE IF NOT EXISTS `deposit_dep` (
+  `dep_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `dep_Date` date DEFAULT NULL,
+  `dep_Comment` text COLLATE utf8_unicode_ci,
+  `dep_EnteredBy` mediumint(9) unsigned DEFAULT NULL,
+  `dep_Closed` tinyint(1) NOT NULL DEFAULT '0',
+  `dep_Type` enum('Bank','CreditCard','BankDraft','eGive') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Bank',
+  PRIMARY KEY (`dep_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
+-- Table structure for table `donateditem_di`
+--
+
+CREATE TABLE IF NOT EXISTS `donateditem_di` (
+  `di_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `di_item` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `di_FR_ID` mediumint(9) unsigned NOT NULL,
+  `di_donor_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `di_buyer_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `di_multibuy` smallint(1) NOT NULL DEFAULT '0',
+  `di_title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `di_description` text COLLATE utf8_unicode_ci,
+  `di_sellprice` decimal(8,2) DEFAULT NULL,
+  `di_estprice` decimal(8,2) DEFAULT NULL,
+  `di_minimum` decimal(8,2) DEFAULT NULL,
+  `di_materialvalue` decimal(8,2) DEFAULT NULL,
+  `di_EnteredBy` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `di_EnteredDate` date NOT NULL,
+  PRIMARY KEY (`di_ID`),
+  UNIQUE KEY `di_ID` (`di_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `donationfund_fun`
--- 
+--
 
-CREATE TABLE `donationfund_fun` (
-  `fun_ID` tinyint(3) NOT NULL auto_increment,
-  `fun_Active` enum('true','false') NOT NULL default 'true',
-  `fun_Name` varchar(30) default NULL,
-  `fun_Description` varchar(100) default NULL,
-  PRIMARY KEY  (`fun_ID`),
+CREATE TABLE IF NOT EXISTS `donationfund_fun` (
+  `fun_ID` tinyint(3) NOT NULL AUTO_INCREMENT,
+  `fun_Active` enum('true','false') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'true',
+  `fun_Name` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fun_Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`fun_ID`),
   UNIQUE KEY `fun_ID` (`fun_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
--- 
+--
 -- Dumping data for table `donationfund_fun`
--- 
+--
 
-INSERT INTO `donationfund_fun` (`fun_ID`, `fun_Active`, `fun_Name`, `fun_Description`) VALUES 
+INSERT INTO `donationfund_fun` (`fun_ID`, `fun_Active`, `fun_Name`, `fun_Description`) VALUES
 (1, 'true', 'Pledges', 'Pledge income for the operating budget');
 
 -- --------------------------------------------------------
 
--- 
+--
+-- Table structure for table `egive_egv`
+--
+
+CREATE TABLE IF NOT EXISTS `egive_egv` (
+  `egv_egiveID` varchar(16) CHARACTER SET utf8 NOT NULL,
+  `egv_famID` int(11) NOT NULL,
+  `egv_DateEntered` datetime NOT NULL,
+  `egv_DateLastEdited` datetime NOT NULL,
+  `egv_EnteredBy` smallint(6) NOT NULL DEFAULT '0',
+  `egv_EditedBy` smallint(6) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `email_message_pending_emp`
--- 
+--
 
-CREATE TABLE `email_message_pending_emp` (
-  `emp_usr_id` mediumint(9) unsigned NOT NULL default '0',
-  `emp_to_send` smallint(5) unsigned NOT NULL default '0',
-  `emp_subject` varchar(128) NOT NULL,
-  `emp_message` text NOT NULL,
-  `emp_attach_name` text NULL,
-  `emp_attach` tinyint(1)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `email_message_pending_emp`
--- 
-
+CREATE TABLE IF NOT EXISTS `email_message_pending_emp` (
+  `emp_usr_id` mediumint(9) unsigned NOT NULL DEFAULT '0',
+  `emp_to_send` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `emp_subject` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_message` text COLLATE utf8_unicode_ci NOT NULL,
+  `emp_attach_name` text COLLATE utf8_unicode_ci,
+  `emp_attach` tinyint(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `email_recipient_pending_erp`
--- 
+--
 
-CREATE TABLE `email_recipient_pending_erp` (
-  `erp_id` smallint(5) unsigned NOT NULL default '0',
-  `erp_usr_id` mediumint(9) unsigned NOT NULL default '0',
-  `erp_num_attempt` smallint(5) unsigned NOT NULL default '0',
-  `erp_failed_time` datetime default NULL,
-  `erp_email_address` varchar(50) NOT NULL default ''
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `email_recipient_pending_erp`
--- 
-
+CREATE TABLE IF NOT EXISTS `email_recipient_pending_erp` (
+  `erp_id` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `erp_usr_id` mediumint(9) unsigned NOT NULL DEFAULT '0',
+  `erp_num_attempt` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `erp_failed_time` datetime DEFAULT NULL,
+  `erp_email_address` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `eventcountnames_evctnm`
--- 
+--
 
-CREATE TABLE `eventcountnames_evctnm` (
-  `evctnm_countid` int(5) NOT NULL auto_increment,
-  `evctnm_eventtypeid` smallint(5) NOT NULL default '0',
-  `evctnm_countname` varchar(20) NOT NULL default '',
-  `evctnm_notes` varchar(20) NOT NULL default '',
+CREATE TABLE IF NOT EXISTS `eventcountnames_evctnm` (
+  `evctnm_countid` int(5) NOT NULL AUTO_INCREMENT,
+  `evctnm_eventtypeid` smallint(5) NOT NULL DEFAULT '0',
+  `evctnm_countname` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `evctnm_notes` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   UNIQUE KEY `evctnm_countid` (`evctnm_countid`),
   UNIQUE KEY `evctnm_eventtypeid` (`evctnm_eventtypeid`,`evctnm_countname`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
--- 
+--
 -- Dumping data for table `eventcountnames_evctnm`
--- 
+--
 
-INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `evctnm_countname`, `evctnm_notes`) VALUES 
+INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `evctnm_countname`, `evctnm_notes`) VALUES
 (1, 1, 'Total', ''),
 (2, 1, 'Members', ''),
 (3, 1, 'Visitors', ''),
@@ -314,271 +344,243 @@ INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `e
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `eventcounts_evtcnt`
--- 
+--
 
-CREATE TABLE `eventcounts_evtcnt` (
-  `evtcnt_eventid` int(5) NOT NULL default '0',
-  `evtcnt_countid` int(5) NOT NULL default '0',
-  `evtcnt_countname` varchar(20) default NULL,
-  `evtcnt_countcount` int(6) default NULL,
-  `evtcnt_notes` varchar(20) default NULL,
-  PRIMARY KEY  (`evtcnt_eventid`,`evtcnt_countid`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `eventcounts_evtcnt`
--- 
-
+CREATE TABLE IF NOT EXISTS `eventcounts_evtcnt` (
+  `evtcnt_eventid` int(5) NOT NULL DEFAULT '0',
+  `evtcnt_countid` int(5) NOT NULL DEFAULT '0',
+  `evtcnt_countname` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `evtcnt_countcount` int(6) DEFAULT NULL,
+  `evtcnt_notes` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`evtcnt_eventid`,`evtcnt_countid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `events_event`
--- 
+--
 
-CREATE TABLE `events_event` (
-  `event_id` int(11) NOT NULL auto_increment,
-  `event_type` int(11) NOT NULL default '0',
-  `event_title` varchar(255) NOT NULL default '',
-  `event_desc` varchar(255) default NULL,
-  `event_text` text,
-  `event_start` datetime NOT NULL default '0000-00-00 00:00:00',
-  `event_end` datetime NOT NULL default '0000-00-00 00:00:00',
-  `inactive` int(1) NOT NULL default '0',
-  `event_typename` varchar(40) NOT NULL default '',
-  PRIMARY KEY  (`event_id`),
+CREATE TABLE IF NOT EXISTS `events_event` (
+  `event_id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_type` int(11) NOT NULL DEFAULT '0',
+  `event_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `event_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `event_text` text COLLATE utf8_unicode_ci,
+  `event_start` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `event_end` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `inactive` int(1) NOT NULL DEFAULT '0',
+  `event_typename` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`event_id`),
   FULLTEXT KEY `event_txt` (`event_text`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `events_event`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `event_attend`
--- 
+--
 
-CREATE TABLE `event_attend` (
-  `event_id` int(11) NOT NULL default '0',
-  `person_id` int(11) NOT NULL default '0',
-  `checkin_date` datetime default NULL,
-  `checkin_id` int(11) default NULL,
-  `checkout_date` datetime default NULL,
-  `checkout_id` int(11) default NULL,
+CREATE TABLE IF NOT EXISTS `event_attend` (
+  `event_id` int(11) NOT NULL DEFAULT '0',
+  `person_id` int(11) NOT NULL DEFAULT '0',
+  `checkin_date` datetime DEFAULT NULL,
+  `checkin_id` int(11) DEFAULT NULL,
+  `checkout_date` datetime DEFAULT NULL,
+  `checkout_id` int(11) DEFAULT NULL,
   UNIQUE KEY `event_id` (`event_id`,`person_id`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `event_attend`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `event_types`
--- 
+--
 
-CREATE TABLE `event_types` (
-  `type_id` int(11) NOT NULL auto_increment,
-  `type_name` varchar(255) NOT NULL default '',
-  `type_defstarttime` time NOT NULL default '00:00:00',
-  `type_defrecurtype` enum('none','weekly','monthly','yearly') NOT NULL default 'none',
-  `type_defrecurDOW` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL default 'Sunday',
-  `type_defrecurDOM` char(2) NOT NULL default '0',
-  `type_defrecurDOY` date NOT NULL default '0000-00-00',
-  `type_active` int(1) NOT NULL default '1',
-  PRIMARY KEY  (`type_id`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `event_types` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `type_defstarttime` time NOT NULL DEFAULT '00:00:00',
+  `type_defrecurtype` enum('none','weekly','monthly','yearly') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'none',
+  `type_defrecurDOW` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Sunday',
+  `type_defrecurDOM` char(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `type_defrecurDOY` date NOT NULL DEFAULT '0000-00-00',
+  `type_active` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`type_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
--- 
+--
 -- Dumping data for table `event_types`
--- 
+--
 
-INSERT INTO `event_types` (`type_id`, `type_name`, `type_defstarttime`, `type_defrecurtype`, `type_defrecurDOW`, `type_defrecurDOM`, `type_defrecurDOY`, `type_active`) VALUES 
+INSERT INTO `event_types` (`type_id`, `type_name`, `type_defstarttime`, `type_defrecurtype`, `type_defrecurDOW`, `type_defrecurDOM`, `type_defrecurDOY`, `type_active`) VALUES
 (1, 'Church Service', '10:30:00', 'weekly', 'Sunday', '', '0000-00-00', 1),
 (2, 'Sunday School', '09:30:00', 'weekly', 'Sunday', '', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `family_custom`
--- 
+--
 
-CREATE TABLE `family_custom` (
-  `fam_ID` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`fam_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `family_custom`
--- 
-
+CREATE TABLE IF NOT EXISTS `family_custom` (
+  `fam_ID` mediumint(9) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`fam_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `family_custom_master`
--- 
+--
 
-CREATE TABLE `family_custom_master` (
-  `fam_custom_Order` smallint(6) NOT NULL default '0',
-  `fam_custom_Field` varchar(5) NOT NULL default '',
-  `fam_custom_Name` varchar(40) NOT NULL default '',
-  `fam_custom_Special` mediumint(8) unsigned default NULL,
-  `fam_custom_Side` enum('left','right') NOT NULL default 'left',
-  `fam_custom_FieldSec` tinyint(4) NOT NULL default '1',
-  `type_ID` tinyint(4) NOT NULL default '0'
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `family_custom_master`
--- 
-
+CREATE TABLE IF NOT EXISTS `family_custom_master` (
+  `fam_custom_Order` smallint(6) NOT NULL DEFAULT '0',
+  `fam_custom_Field` varchar(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `fam_custom_Name` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `fam_custom_Special` mediumint(8) unsigned DEFAULT NULL,
+  `fam_custom_Side` enum('left','right') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'left',
+  `fam_custom_FieldSec` tinyint(4) NOT NULL DEFAULT '1',
+  `type_ID` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `family_fam`
--- 
+--
 
-CREATE TABLE `family_fam` (
-  `fam_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `fam_Name` varchar(50) default NULL,
-  `fam_Address1` varchar(255) default NULL,
-  `fam_Address2` varchar(255) default NULL,
-  `fam_City` varchar(50) default NULL,
-  `fam_State` varchar(50) default NULL,
-  `fam_Zip` varchar(50) default NULL,
-  `fam_Country` varchar(50) default NULL,
-  `fam_HomePhone` varchar(30) default NULL,
-  `fam_WorkPhone` varchar(30) default NULL,
-  `fam_CellPhone` varchar(30) default NULL,
-  `fam_Email` varchar(100) default NULL,
-  `fam_WeddingDate` date default NULL,
-  `fam_DateEntered` datetime NOT NULL default '0000-00-00 00:00:00',
-  `fam_DateLastEdited` datetime default NULL,
-  `fam_EnteredBy` smallint(5) unsigned NOT NULL default '0',
-  `fam_EditedBy` smallint(5) unsigned default '0',
-  `fam_scanCheck` text,
-  `fam_scanCredit` text,
-  `fam_SendNewsLetter` enum('FALSE','TRUE') NOT NULL default 'FALSE',
-  `fam_DateDeactivated` date default NULL,
-  `fam_OkToCanvass` enum('FALSE','TRUE') NOT NULL default 'FALSE',
-  `fam_Canvasser` smallint(5) unsigned NOT NULL default '0',
-  `fam_Latitude` double default NULL,
-  `fam_Longitude` double default NULL,
-  `fam_Envelope` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`fam_ID`),
+CREATE TABLE IF NOT EXISTS `family_fam` (
+  `fam_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `fam_Name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_Address1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_Address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_City` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_State` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_Zip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_Country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_HomePhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_WorkPhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_CellPhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_Email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fam_WeddingDate` date DEFAULT NULL,
+  `fam_DateEntered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `fam_DateLastEdited` datetime DEFAULT NULL,
+  `fam_EnteredBy` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `fam_EditedBy` smallint(5) unsigned DEFAULT '0',
+  `fam_scanCheck` text COLLATE utf8_unicode_ci,
+  `fam_scanCredit` text COLLATE utf8_unicode_ci,
+  `fam_SendNewsLetter` enum('FALSE','TRUE') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'FALSE',
+  `fam_DateDeactivated` date DEFAULT NULL,
+  `fam_OkToCanvass` enum('FALSE','TRUE') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'FALSE',
+  `fam_Canvasser` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `fam_Latitude` double DEFAULT NULL,
+  `fam_Longitude` double DEFAULT NULL,
+  `fam_Envelope` mediumint(9) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`fam_ID`),
   KEY `fam_ID` (`fam_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `family_fam`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
+-- Table structure for table `fundraiser_fr`
+--
+
+CREATE TABLE IF NOT EXISTS `fundraiser_fr` (
+  `fr_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `fr_date` date DEFAULT NULL,
+  `fr_title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `fr_description` text COLLATE utf8_unicode_ci,
+  `fr_EnteredBy` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `fr_EnteredDate` date NOT NULL,
+  PRIMARY KEY (`fr_ID`),
+  UNIQUE KEY `fr_ID` (`fr_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `groupprop_master`
--- 
+--
 
-CREATE TABLE `groupprop_master` (
-  `grp_ID` mediumint(9) unsigned NOT NULL default '0',
-  `prop_ID` tinyint(3) unsigned NOT NULL default '0',
-  `prop_Field` varchar(5) NOT NULL default '0',
-  `prop_Name` varchar(40) default NULL,
-  `prop_Description` varchar(60) default NULL,
-  `type_ID` smallint(5) unsigned NOT NULL default '0',
-  `prop_Special` mediumint(9) unsigned default NULL,
-  `prop_PersonDisplay` enum('false','true') NOT NULL default 'false'
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT='Group-specific properties order, name, description, type';
-
--- 
--- Dumping data for table `groupprop_master`
--- 
-
+CREATE TABLE IF NOT EXISTS `groupprop_master` (
+  `grp_ID` mediumint(9) unsigned NOT NULL DEFAULT '0',
+  `prop_ID` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `prop_Field` varchar(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `prop_Name` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prop_Description` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type_ID` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `prop_Special` mediumint(9) unsigned DEFAULT NULL,
+  `prop_PersonDisplay` enum('false','true') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'false'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Group-specific properties order, name, description, type';
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `group_grp`
--- 
+--
 
-CREATE TABLE `group_grp` (
-  `grp_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `grp_Type` tinyint(4) NOT NULL default '0',
-  `grp_RoleListID` mediumint(8) unsigned NOT NULL default '0',
-  `grp_DefaultRole` mediumint(9) NOT NULL default '0',
-  `grp_Name` varchar(50) NOT NULL default '',
-  `grp_Description` text,
-  `grp_hasSpecialProps` enum('true','false') NOT NULL default 'false',
-  PRIMARY KEY  (`grp_ID`),
+CREATE TABLE IF NOT EXISTS `group_grp` (
+  `grp_ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `grp_Type` tinyint(4) NOT NULL DEFAULT '0',
+  `grp_RoleListID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `grp_DefaultRole` mediumint(9) NOT NULL DEFAULT '0',
+  `grp_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `grp_Description` text COLLATE utf8_unicode_ci,
+  `grp_hasSpecialProps` enum('true','false') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'false',
+  PRIMARY KEY (`grp_ID`),
   UNIQUE KEY `grp_ID` (`grp_ID`),
   KEY `grp_ID_2` (`grp_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `group_grp`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `istlookup_lu`
--- 
+--
 
-CREATE TABLE `istlookup_lu` (
-  `lu_fam_ID` mediumint(9) NOT NULL default '0',
-  `lu_LookupDateTime` datetime NOT NULL default '0000-00-00 00:00:00',
-  `lu_DeliveryLine1` varchar(255) default NULL,
-  `lu_DeliveryLine2` varchar(255) default NULL,
-  `lu_City` varchar(50) default NULL,
-  `lu_State` varchar(50) default NULL,
-  `lu_ZipAddon` varchar(50) default NULL,
-  `lu_Zip` varchar(10) default NULL,
-  `lu_Addon` varchar(10) default NULL,
-  `lu_LOTNumber` varchar(10) default NULL,
-  `lu_DPCCheckdigit` varchar(10) default NULL,
-  `lu_RecordType` varchar(10) default NULL,
-  `lu_LastLine` varchar(255) default NULL,
-  `lu_CarrierRoute` varchar(10) default NULL,
-  `lu_ReturnCodes` varchar(10) default NULL,
-  `lu_ErrorCodes` varchar(10) default NULL,
-  `lu_ErrorDesc` varchar(255) default NULL,
-  PRIMARY KEY  (`lu_fam_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT='US Address Verification Lookups From Intelligent Search Tech';
-
--- 
--- Dumping data for table `istlookup_lu`
--- 
-
+CREATE TABLE IF NOT EXISTS `istlookup_lu` (
+  `lu_fam_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `lu_LookupDateTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lu_DeliveryLine1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_DeliveryLine2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_City` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_State` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_ZipAddon` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_Zip` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_Addon` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_LOTNumber` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_DPCCheckdigit` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_RecordType` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_LastLine` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_CarrierRoute` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_ReturnCodes` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_ErrorCodes` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lu_ErrorDesc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`lu_fam_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='US Address Verification Lookups From Intelligent Search Tech';
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `list_lst`
--- 
+--
 
-CREATE TABLE `list_lst` (
-  `lst_ID` mediumint(8) unsigned NOT NULL default '0',
-  `lst_OptionID` mediumint(8) unsigned NOT NULL default '0',
-  `lst_OptionSequence` tinyint(3) unsigned NOT NULL default '0',
-  `lst_OptionName` varchar(50) NOT NULL default ''
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE TABLE IF NOT EXISTS `list_lst` (
+  `lst_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `lst_OptionID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `lst_OptionSequence` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lst_OptionName` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- 
+--
 -- Dumping data for table `list_lst`
--- 
+--
 
-INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_OptionName`) VALUES 
+INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_OptionName`) VALUES
 (1, 1, 1, 'Member'),
 (1, 2, 2, 'Regular Attender'),
 (1, 3, 3, 'Guest'),
@@ -619,383 +621,379 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `menuconfig_mcf`
--- 
+--
 
-CREATE TABLE `menuconfig_mcf` (
-  `mid` int(11) NOT NULL auto_increment,
-  `name` varchar(20) NOT NULL,
-  `parent` varchar(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menuconfig_mcf` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `parent` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `ismenu` tinyint(1) NOT NULL,
-  `content_english` varchar(100) NOT NULL,
-  `content` varchar(100) NULL,
-  `uri` varchar(255) NOT NULL,
-  `statustext` varchar(255) NOT NULL,
-  `security_grp` varchar(50) NOT NULL,
-  `session_var` varchar(50) default NULL,
+  `content_english` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `uri` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `statustext` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `security_grp` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `session_var` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `session_var_in_text` tinyint(1) NOT NULL,
   `session_var_in_uri` tinyint(1) NOT NULL,
-  `url_parm_name` varchar(50) default NULL,
+  `url_parm_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` tinyint(1) NOT NULL,
   `sortorder` tinyint(3) NOT NULL,
-  PRIMARY KEY  (`mid`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=84 ;
+  PRIMARY KEY (`mid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=91 ;
 
--- 
+--
 -- Dumping data for table `menuconfig_mcf`
--- 
+--
 
-INSERT INTO `menuconfig_mcf` (`mid`, `name`, `parent`, `ismenu`, `content_english`, `content`, `uri`, `statustext`, `security_grp`, `session_var`, `session_var_in_text`, `session_var_in_uri`, `url_parm_name`, `active`, `sortorder`) VALUES 
-(1, 'root', '', 1, 'Main', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 0),
-(2, 'main', 'root', 1, 'Main', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(3, 'logoff', 'main', 0, 'Log Off', NULL, 'Default.php?Logoff=True', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(4, 'chgpassword', 'main', 0, 'Change My Password', NULL, 'UserPasswordChange.php', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(5, 'chgsetting', 'main', 0, 'Change My Settings', NULL, 'SettingsIndividual.php', '', 'bAll', NULL, 0, 0, NULL, 1, 0),
-(6, 'admin', 'root', 1, 'Admin', NULL, '', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2),
-(7, 'editusers', 'admin', 0, 'Edit Users', NULL, 'UserList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 1),
-(8, 'addnewuser', 'admin', 0, 'Add New User', NULL, 'UserEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2),
-(9, 'custompersonfld', 'admin', 0, 'Edit Custom Person Fields', NULL, 'PersonCustomFieldsEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3),
-(10, 'donationfund', 'admin', 0, 'Edit Donation Funds', NULL, 'DonationFundEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 4),
-(11, 'dbbackup', 'admin', 0, 'Backup Database', NULL, 'BackupDatabase.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 5),
-(12, 'cvsimport', 'admin', 0, 'CSV Import', NULL, 'CSVImport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 6),
-(13, 'accessreport', 'admin', 0, 'Access report', NULL, 'AccessReport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 7),
-(14, 'generalsetting', 'admin', 0, 'Edit General Settings', NULL, 'SettingsGeneral.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 8),
-(15, 'reportsetting', 'admin', 0, 'Edit Report Settings', NULL, 'SettingsReport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 9),
-(16, 'userdefault', 'admin', 0, 'Edit User Default Settings', NULL, 'SettingsUser.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 10),
-(17, 'envelopmgr', 'admin', 0, 'Envelope Manager', NULL, 'ManageEnvelopes.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 11),
-(18, 'register', 'admin', 0, 'Please select this option to register ChurchInfo after configuring.', NULL, 'Register.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 12),
-(19, 'people', 'root', 1, 'People/Families', NULL, '', 'People/Families', 'bAll', NULL, 0, 0, NULL, 1, 3),
-(20, 'newperson', 'people', 0, 'Add New Person', NULL, 'PersonEditor.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 1),
-(21, 'viewperson', 'people', 0, 'View All Persons', NULL, 'SelectList.php?mode=person', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(22, 'classes', 'people', 0, 'Classification Manager', NULL, 'OptionManager.php?mode=classes', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 3),
-(23, 'separator1', 'people', 0, '---------------------------', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(24, 'volunteeropportunity', 'people', 0, 'Edit volunteer opportunities', NULL, 'VolunteerOpportunityEditor.php', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
-(25, 'separator2', 'people', 0, '---------------------------', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
-(26, 'newfamily', 'people', 0, 'Add New Family', NULL, 'FamilyEditor.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 7),
-(27, 'viewfamily', 'people', 0, 'View All Families', NULL, 'SelectList.php?mode=family', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
-(28, 'familygeotools', 'people', 0, 'Family Geographic Utilties', NULL, 'GeoPage.php', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
-(29, 'familymap', 'people', 0, 'Family Map', NULL, 'MapUsingGoogle.php?GroupID=-1', '', 'bAll', NULL, 0, 0, NULL, 1, 10),
-(30, 'rolemanager', 'people', 0, 'Family Roles Manager', NULL, 'OptionManager.php?mode=famroles', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 11),
-(31, 'events', 'root', 1, 'Events', NULL, '', 'Events', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(32, 'listevent', 'events', 0, 'List Church Events', NULL, 'ListEvents.php', 'List Church Events', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(33, 'addevent', 'events', 0, 'Add Church Event', NULL, 'EventNames.php', 'Add Church Event', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(34, 'eventype', 'events', 0, 'List Event Types', NULL, 'EventNames.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3),
-(83, 'eventcheckin', 'events', 0, 'Check-in and Check-out', NULL, 'Checkin.php', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(35, 'deposit', 'root', 1, 'Deposit', NULL, '', '', 'bFinance', NULL, 0, 0, NULL, 1, 5),
-(36, 'newdeposit', 'deposit', 0, 'Create New Deposit', NULL, 'DepositSlipEditor.php?DepositType=Bank', '', 'bFinance', NULL, 0, 0, NULL, 1, 1),
-(37, 'viewdeposit', 'deposit', 0, 'View All Deposits', NULL, 'FindDepositSlip.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 2),
-(38, 'depositreport', 'deposit', 0, 'Deposit Reports', NULL, 'FinancialReports.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 3),
-(39, 'separator3', 'deposit', 0, '---------------------------', NULL, '', '', 'bFinance', NULL, 0, 0, NULL, 1, 4),
-(40, 'depositslip', 'deposit', 0, 'Edit Deposit Slip', NULL, 'DepositSlipEditor.php', '', 'bFinance', 'iCurrentDeposit', 1, 1, 'DepositSlipID', 1, 5),
-
-(84, 'fundraiser', 'root', 1, 'Fundraiser', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
-(85, 'newfundraiser', 'fundraiser', 0, 'Create New Fundraiser', NULL, 'FundRaiserEditor.php?FundRaiserID=-1', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(86, 'viewfundraiser', 'fundraiser', 0, 'View All Fundraisers', NULL, 'FindFundRaiser.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(87, 'editfundraiser', 'fundraiser', 0, 'Edit Fundraiser', NULL, 'FundRaiserEditor.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
-(88, 'viewbuyers', 'fundraiser', 0, 'View Buyers', NULL, 'PaddleNumList.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
-(89, 'adddonors', 'fundraiser', 0, 'Add Donors to Buyer List', NULL, 'AddDonors.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
-
-(41, 'cart', 'root', 1, 'Cart', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
-(42, 'viewcart', 'cart', 0, 'List Cart Items', NULL, 'CartView.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(43, 'emptycart', 'cart', 0, 'Empty Cart', NULL, 'CartView.php?Action=EmptyCart', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(44, 'carttogroup', 'cart', 0, 'Empty Cart to Group', NULL, 'CartToGroup.php', '', 'bManageGroups', NULL, 0, 0, NULL, 1, 3),
-(45, 'carttofamily', 'cart', 0, 'Empty Cart to Family', NULL, 'CartToFamily.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 4),
-(46, 'carttoevent', 'cart', 0, 'Empty Cart to Event', NULL, 'CartToEvent.php', 'Empty Cart contents to Event', 'bAll', NULL, 0, 0, NULL, 1, 5),
-(47, 'report', 'root', 1, 'Data/Reports', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 7),
-(48, 'cvsexport', 'report', 0, 'CSV Export Records', NULL, 'CSVExport.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(49, 'querymenu', 'report', 0, 'Query Menu', NULL, 'QueryList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(50, 'reportmenu', 'report', 0, 'Reports Menu', NULL, 'ReportList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
-(51, 'groups', 'root', 1, 'Groups', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
-(52, 'listgroups', 'groups', 0, 'List Groups', NULL, 'GroupList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(53, 'newgroup', 'groups', 0, 'Add a New Group', NULL, 'GroupEditor.php', '', 'bManageGroups', NULL, 0, 0, NULL, 1, 2),
-(54, 'editgroup', 'groups', 0, 'Edit Group Types', NULL, 'OptionManager.php?mode=grptypes', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 3),
-(55, 'assigngroup', 'group', 0, 'Group Assignment Helper', NULL, 'SelectList.php?mode=groupassign', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(56, 'properties', 'root', 1, 'Properties', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
-(57, 'peopleproperty', 'properties', 0, 'People Properties', NULL, 'PropertyList.php?Type=p', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(58, 'familyproperty', 'properties', 0, 'Family Properties', NULL, 'PropertyList.php?Type=f', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(59, 'groupproperty', 'properties', 0, 'Group Properties', NULL, 'PropertyList.php?Type=g', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
-(60, 'propertytype', 'properties', 0, 'Property Types', NULL, 'PropertyTypeList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(64, 'help', 'root', 1, 'Help', NULL, '', '', 'bAll', NULL, 0, 0, NULL, 1, 127),
-(65, 'about', 'help', 0, 'About ChurchInfo', NULL, 'Help.php?page=About', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
-(66, 'wiki', 'help', 0, 'Wiki Documentation', NULL, 'Help.php?page=Wiki', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
-(67, 'helppeople', 'help', 0, 'People', NULL, 'Help.php?page=People', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
-(68, 'helpfamily', 'help', 0, 'Families', NULL, 'Help.php?page=Family', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
-(69, 'helpgeofeature', 'help', 0, 'Geographic features', NULL, 'Help.php?page=Geographic', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
-(70, 'helpgroups', 'help', 0, 'Groups', NULL, 'Help.php?page=Groups', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
-(71, 'helpfinance', 'help', 0, 'Finances', NULL, 'Help.php?page=Finances', '', 'bAll', NULL, 0, 0, NULL, 1, 7),
-(90, 'helpfundraiser', 'help', 0, 'Fundraiser', NULL, 'Help.php?page=Fundraiser', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
-(72, 'helpreports', 'help', 0, 'Reports', NULL, 'Help.php?page=Reports', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
-(73, 'helpadmin', 'help', 0, 'Administration', NULL, 'Help.php?page=Admin', '', 'bAll', NULL, 0, 0, NULL, 1, 10),
-(74, 'helpcart', 'help', 0, 'Cart', NULL, 'Help.php?page=Cart', '', 'bAll', NULL, 0, 0, NULL, 1, 11),
-(75, 'helpproperty', 'help', 0, 'Properties', NULL, 'Help.php?page=Properties', '', 'bAll', NULL, 0, 0, NULL, 1, 12),
-(76, 'helpnotes', 'help', 0, 'Notes', NULL, 'Help.php?page=Notes', '', 'bAll', NULL, 0, 0, NULL, 1, 13),
-(77, 'helpcustomfields', 'help', 0, 'Custom Fields', NULL, 'Help.php?page=Custom', '', 'bAll', NULL, 0, 0, NULL, 1, 14),
-(78, 'helpclassification', 'help', 0, 'Classifications', NULL, 'Help.php?page=Class', '', 'bAll', NULL, 0, 0, NULL, 1, 15),
-(79, 'helpcanvass', 'help', 0, 'Canvass Support', NULL, 'Help.php?page=Canvass', '', 'bAll', NULL, 0, 0, NULL, 1, 16),
-(80, 'helpevents', 'help', 0, 'Events', NULL, 'Help.php?page=Events', '', 'bAll', NULL, 0, 0, NULL, 1, 17),
-(81, 'menusetup', 'admin', 0, 'Menu Options', NULL, 'MenuSetup.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 13),
-(82, 'customfamilyfld', 'admin', 0, 'Edit Custom Family Fields', NULL, 'FamilyCustomFieldsEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3);
-
-UPDATE menuconfig_mcf SET content=content_english;
+INSERT INTO `menuconfig_mcf` (`mid`, `name`, `parent`, `ismenu`, `content_english`, `content`, `uri`, `statustext`, `security_grp`, `session_var`, `session_var_in_text`, `session_var_in_uri`, `url_parm_name`, `active`, `sortorder`) VALUES
+(1, 'root', '', 1, 'Main', 'Main', '', '', 'bAll', NULL, 0, 0, NULL, 1, 0),
+(2, 'main', 'root', 1, 'Main', 'Main', '', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(3, 'logoff', 'main', 0, 'Log Off', 'Log Off', 'Default.php?Logoff=True', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(4, 'chgpassword', 'main', 0, 'Change My Password', 'Change My Password', 'UserPasswordChange.php', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(5, 'chgsetting', 'main', 0, 'Change My Settings', 'Change My Settings', 'SettingsIndividual.php', '', 'bAll', NULL, 0, 0, NULL, 1, 0),
+(6, 'admin', 'root', 1, 'Admin', 'Admin', '', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2),
+(7, 'editusers', 'admin', 0, 'Edit Users', 'Edit Users', 'UserList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 1),
+(8, 'addnewuser', 'admin', 0, 'Add New User', 'Add New User', 'UserEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2),
+(9, 'custompersonfld', 'admin', 0, 'Edit Custom Person Fields', 'Edit Custom Person Fields', 'PersonCustomFieldsEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3),
+(10, 'donationfund', 'admin', 0, 'Edit Donation Funds', 'Edit Donation Funds', 'DonationFundEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 4),
+(11, 'dbbackup', 'admin', 0, 'Backup Database', 'Backup Database', 'BackupDatabase.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 5),
+(12, 'cvsimport', 'admin', 0, 'CSV Import', 'CSV Import', 'CSVImport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 6),
+(13, 'accessreport', 'admin', 0, 'Access report', 'Access report', 'AccessReport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 7),
+(14, 'generalsetting', 'admin', 0, 'Edit General Settings', 'Edit General Settings', 'SettingsGeneral.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 8),
+(15, 'reportsetting', 'admin', 0, 'Edit Report Settings', 'Edit Report Settings', 'SettingsReport.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 9),
+(16, 'userdefault', 'admin', 0, 'Edit User Default Settings', 'Edit User Default Settings', 'SettingsUser.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 10),
+(17, 'envelopmgr', 'admin', 0, 'Envelope Manager', 'Envelope Manager', 'ManageEnvelopes.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 11),
+(18, 'register', 'admin', 0, 'Please select this option to register ChurchInfo after configuring.', 'Please select this option to register ChurchInfo after configuring.', 'Register.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 12),
+(19, 'people', 'root', 1, 'People/Families', 'People/Families', '', 'People/Families', 'bAll', NULL, 0, 0, NULL, 1, 3),
+(20, 'newperson', 'people', 0, 'Add New Person', 'Add New Person', 'PersonEditor.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 1),
+(21, 'viewperson', 'people', 0, 'View All Persons', 'View All Persons', 'SelectList.php?mode=person', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(22, 'classes', 'people', 0, 'Classification Manager', 'Classification Manager', 'OptionManager.php?mode=classes', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 3),
+(23, 'separator1', 'people', 0, '---------------------------', '---------------------------', '', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(24, 'volunteeropportunity', 'people', 0, 'Edit volunteer opportunities', 'Edit volunteer opportunities', 'VolunteerOpportunityEditor.php', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
+(25, 'separator2', 'people', 0, '---------------------------', '---------------------------', '', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
+(26, 'newfamily', 'people', 0, 'Add New Family', 'Add New Family', 'FamilyEditor.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 7),
+(27, 'viewfamily', 'people', 0, 'View All Families', 'View All Families', 'SelectList.php?mode=family', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
+(28, 'familygeotools', 'people', 0, 'Family Geographic Utilties', 'Family Geographic Utilties', 'GeoPage.php', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
+(29, 'familymap', 'people', 0, 'Family Map', 'Family Map', 'MapUsingGoogle.php?GroupID=-1', '', 'bAll', NULL, 0, 0, NULL, 1, 10),
+(30, 'rolemanager', 'people', 0, 'Family Roles Manager', 'Family Roles Manager', 'OptionManager.php?mode=famroles', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 11),
+(31, 'events', 'root', 1, 'Events', 'Events', '', 'Events', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(32, 'listevent', 'events', 0, 'List Church Events', 'List Church Events', 'ListEvents.php', 'List Church Events', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(33, 'addevent', 'events', 0, 'Add Church Event', 'Add Church Event', 'EventNames.php', 'Add Church Event', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(34, 'eventype', 'events', 0, 'List Event Types', 'List Event Types', 'EventNames.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3),
+(83, 'eventcheckin', 'events', 0, 'Check-in and Check-out', 'Check-in and Check-out', 'Checkin.php', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(35, 'deposit', 'root', 1, 'Deposit', 'Deposit', '', '', 'bFinance', NULL, 0, 0, NULL, 1, 5),
+(36, 'newdeposit', 'deposit', 0, 'Create New Deposit', 'Create New Deposit', 'DepositSlipEditor.php?DepositType=Bank', '', 'bFinance', NULL, 0, 0, NULL, 1, 1),
+(37, 'viewdeposit', 'deposit', 0, 'View All Deposits', 'View All Deposits', 'FindDepositSlip.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 2),
+(38, 'depositreport', 'deposit', 0, 'Deposit Reports', 'Deposit Reports', 'FinancialReports.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 3),
+(39, 'separator3', 'deposit', 0, '---------------------------', '---------------------------', '', '', 'bFinance', NULL, 0, 0, NULL, 1, 4),
+(40, 'depositslip', 'deposit', 0, 'Edit Deposit Slip', 'Edit Deposit Slip', 'DepositSlipEditor.php', '', 'bFinance', 'iCurrentDeposit', 1, 1, 'DepositSlipID', 1, 5),
+(84, 'fundraiser', 'root', 1, 'Fundraiser', 'Fundraiser', '', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
+(85, 'newfundraiser', 'fundraiser', 0, 'Create New Fundraiser', 'Create New Fundraiser', 'FundRaiserEditor.php?FundRaiserID=-1', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(86, 'viewfundraiser', 'fundraiser', 0, 'View All Fundraisers', 'View All Fundraisers', 'FindFundRaiser.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(87, 'editfundraiser', 'fundraiser', 0, 'Edit Fundraiser', 'Edit Fundraiser', 'FundRaiserEditor.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
+(88, 'viewbuyers', 'fundraiser', 0, 'View Buyers', 'View Buyers', 'PaddleNumList.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
+(89, 'adddonors', 'fundraiser', 0, 'Add Donors to Buyer List', 'Add Donors to Buyer List', 'AddDonors.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5),
+(41, 'cart', 'root', 1, 'Cart', 'Cart', '', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
+(42, 'viewcart', 'cart', 0, 'List Cart Items', 'List Cart Items', 'CartView.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(43, 'emptycart', 'cart', 0, 'Empty Cart', 'Empty Cart', 'CartView.php?Action=EmptyCart', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(44, 'carttogroup', 'cart', 0, 'Empty Cart to Group', 'Empty Cart to Group', 'CartToGroup.php', '', 'bManageGroups', NULL, 0, 0, NULL, 1, 3),
+(45, 'carttofamily', 'cart', 0, 'Empty Cart to Family', 'Empty Cart to Family', 'CartToFamily.php', '', 'bAddRecords', NULL, 0, 0, NULL, 1, 4),
+(46, 'carttoevent', 'cart', 0, 'Empty Cart to Event', 'Empty Cart to Event', 'CartToEvent.php', 'Empty Cart contents to Event', 'bAll', NULL, 0, 0, NULL, 1, 5),
+(47, 'report', 'root', 1, 'Data/Reports', 'Data/Reports', '', '', 'bAll', NULL, 0, 0, NULL, 1, 7),
+(48, 'cvsexport', 'report', 0, 'CSV Export Records', 'CSV Export Records', 'CSVExport.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(49, 'querymenu', 'report', 0, 'Query Menu', 'Query Menu', 'QueryList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(50, 'reportmenu', 'report', 0, 'Reports Menu', 'Reports Menu', 'ReportList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
+(51, 'groups', 'root', 1, 'Groups', 'Groups', '', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
+(52, 'listgroups', 'groups', 0, 'List Groups', 'List Groups', 'GroupList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(53, 'newgroup', 'groups', 0, 'Add a New Group', 'Add a New Group', 'GroupEditor.php', '', 'bManageGroups', NULL, 0, 0, NULL, 1, 2),
+(54, 'editgroup', 'groups', 0, 'Edit Group Types', 'Edit Group Types', 'OptionManager.php?mode=grptypes', '', 'bMenuOptions', NULL, 0, 0, NULL, 1, 3),
+(55, 'assigngroup', 'group', 0, 'Group Assignment Helper', 'Group Assignment Helper', 'SelectList.php?mode=groupassign', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(56, 'properties', 'root', 1, 'Properties', 'Properties', '', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
+(57, 'peopleproperty', 'properties', 0, 'People Properties', 'People Properties', 'PropertyList.php?Type=p', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(58, 'familyproperty', 'properties', 0, 'Family Properties', 'Family Properties', 'PropertyList.php?Type=f', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(59, 'groupproperty', 'properties', 0, 'Group Properties', 'Group Properties', 'PropertyList.php?Type=g', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
+(60, 'propertytype', 'properties', 0, 'Property Types', 'Property Types', 'PropertyTypeList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(64, 'help', 'root', 1, 'Help', 'Help', '', '', 'bAll', NULL, 0, 0, NULL, 1, 127),
+(65, 'about', 'help', 0, 'About ChurchInfo', 'About ChurchInfo', 'Help.php?page=About', '', 'bAll', NULL, 0, 0, NULL, 1, 1),
+(66, 'wiki', 'help', 0, 'Wiki Documentation', 'Wiki Documentation', 'Help.php?page=Wiki', '', 'bAll', NULL, 0, 0, NULL, 1, 2),
+(67, 'helppeople', 'help', 0, 'People', 'People', 'Help.php?page=People', '', 'bAll', NULL, 0, 0, NULL, 1, 3),
+(68, 'helpfamily', 'help', 0, 'Families', 'Families', 'Help.php?page=Family', '', 'bAll', NULL, 0, 0, NULL, 1, 4),
+(69, 'helpgeofeature', 'help', 0, 'Geographic features', 'Geographic features', 'Help.php?page=Geographic', '', 'bAll', NULL, 0, 0, NULL, 1, 5),
+(70, 'helpgroups', 'help', 0, 'Groups', 'Groups', 'Help.php?page=Groups', '', 'bAll', NULL, 0, 0, NULL, 1, 6),
+(71, 'helpfinance', 'help', 0, 'Finances', 'Finances', 'Help.php?page=Finances', '', 'bAll', NULL, 0, 0, NULL, 1, 7),
+(90, 'helpfundraiser', 'help', 0, 'Fundraiser', 'Fundraiser', 'Help.php?page=Fundraiser', '', 'bAll', NULL, 0, 0, NULL, 1, 8),
+(72, 'helpreports', 'help', 0, 'Reports', 'Reports', 'Help.php?page=Reports', '', 'bAll', NULL, 0, 0, NULL, 1, 9),
+(73, 'helpadmin', 'help', 0, 'Administration', 'Administration', 'Help.php?page=Admin', '', 'bAll', NULL, 0, 0, NULL, 1, 10),
+(74, 'helpcart', 'help', 0, 'Cart', 'Cart', 'Help.php?page=Cart', '', 'bAll', NULL, 0, 0, NULL, 1, 11),
+(75, 'helpproperty', 'help', 0, 'Properties', 'Properties', 'Help.php?page=Properties', '', 'bAll', NULL, 0, 0, NULL, 1, 12),
+(76, 'helpnotes', 'help', 0, 'Notes', 'Notes', 'Help.php?page=Notes', '', 'bAll', NULL, 0, 0, NULL, 1, 13),
+(77, 'helpcustomfields', 'help', 0, 'Custom Fields', 'Custom Fields', 'Help.php?page=Custom', '', 'bAll', NULL, 0, 0, NULL, 1, 14),
+(78, 'helpclassification', 'help', 0, 'Classifications', 'Classifications', 'Help.php?page=Class', '', 'bAll', NULL, 0, 0, NULL, 1, 15),
+(79, 'helpcanvass', 'help', 0, 'Canvass Support', 'Canvass Support', 'Help.php?page=Canvass', '', 'bAll', NULL, 0, 0, NULL, 1, 16),
+(80, 'helpevents', 'help', 0, 'Events', 'Events', 'Help.php?page=Events', '', 'bAll', NULL, 0, 0, NULL, 1, 17),
+(81, 'menusetup', 'admin', 0, 'Menu Options', 'Menu Options', 'MenuSetup.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 13),
+(82, 'customfamilyfld', 'admin', 0, 'Edit Custom Family Fields', 'Edit Custom Family Fields', 'FamilyCustomFieldsEditor.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3);
 
 -- --------------------------------------------------------
 
--- 
+--
+-- Table structure for table `multibuy_mb`
+--
+
+CREATE TABLE IF NOT EXISTS `multibuy_mb` (
+  `mb_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `mb_per_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `mb_item_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `mb_count` decimal(8,0) DEFAULT NULL,
+  PRIMARY KEY (`mb_ID`),
+  UNIQUE KEY `mb_ID` (`mb_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `note_nte`
--- 
+--
 
-CREATE TABLE `note_nte` (
-  `nte_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `nte_per_ID` mediumint(8) unsigned NOT NULL default '0',
-  `nte_fam_ID` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Private` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Text` text,
-  `nte_DateEntered` datetime NOT NULL default '0000-00-00 00:00:00',
-  `nte_DateLastEdited` datetime default NULL,
-  `nte_EnteredBy` mediumint(8) unsigned NOT NULL default '0',
-  `nte_EditedBy` mediumint(8) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`nte_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `note_nte`
--- 
-
+CREATE TABLE IF NOT EXISTS `note_nte` (
+  `nte_ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `nte_per_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `nte_fam_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `nte_Private` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `nte_Text` text COLLATE utf8_unicode_ci,
+  `nte_DateEntered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `nte_DateLastEdited` datetime DEFAULT NULL,
+  `nte_EnteredBy` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `nte_EditedBy` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`nte_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
+-- Table structure for table `paddlenum_pn`
+--
+
+CREATE TABLE IF NOT EXISTS `paddlenum_pn` (
+  `pn_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `pn_fr_ID` mediumint(9) unsigned DEFAULT NULL,
+  `pn_Num` mediumint(9) unsigned DEFAULT NULL,
+  `pn_per_ID` mediumint(9) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`pn_ID`),
+  UNIQUE KEY `pn_ID` (`pn_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `person2group2role_p2g2r`
--- 
+--
 
-CREATE TABLE `person2group2role_p2g2r` (
-  `p2g2r_per_ID` mediumint(8) unsigned NOT NULL default '0',
-  `p2g2r_grp_ID` mediumint(8) unsigned NOT NULL default '0',
-  `p2g2r_rle_ID` mediumint(8) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`p2g2r_per_ID`,`p2g2r_grp_ID`),
+CREATE TABLE IF NOT EXISTS `person2group2role_p2g2r` (
+  `p2g2r_per_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `p2g2r_grp_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `p2g2r_rle_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`p2g2r_per_ID`,`p2g2r_grp_ID`),
   KEY `p2g2r_per_ID` (`p2g2r_per_ID`,`p2g2r_grp_ID`,`p2g2r_rle_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `person2group2role_p2g2r`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `person2volunteeropp_p2vo`
--- 
+--
 
-CREATE TABLE `person2volunteeropp_p2vo` (
-  `p2vo_ID` mediumint(9) NOT NULL auto_increment,
-  `p2vo_per_ID` mediumint(9) default NULL,
-  `p2vo_vol_ID` mediumint(9) default NULL,
-  PRIMARY KEY  (`p2vo_ID`),
+CREATE TABLE IF NOT EXISTS `person2volunteeropp_p2vo` (
+  `p2vo_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `p2vo_per_ID` mediumint(9) DEFAULT NULL,
+  `p2vo_vol_ID` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`p2vo_ID`),
   UNIQUE KEY `p2vo_ID` (`p2vo_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `person2volunteeropp_p2vo`
--- 
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `person_custom`
--- 
+--
 
-CREATE TABLE `person_custom` (
-  `per_ID` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`per_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `person_custom`
--- 
-
+CREATE TABLE IF NOT EXISTS `person_custom` (
+  `per_ID` mediumint(9) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`per_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `person_custom_master`
--- 
+--
 
-CREATE TABLE `person_custom_master` (
-  `custom_Order` smallint(6) NOT NULL default '0',
-  `custom_Field` varchar(5) NOT NULL default '',
-  `custom_Name` varchar(40) NOT NULL default '',
-  `custom_Special` mediumint(8) unsigned default NULL,
-  `custom_Side` enum('left','right') NOT NULL default 'left',
+CREATE TABLE IF NOT EXISTS `person_custom_master` (
+  `custom_Order` smallint(6) NOT NULL DEFAULT '0',
+  `custom_Field` varchar(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `custom_Name` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `custom_Special` mediumint(8) unsigned DEFAULT NULL,
+  `custom_Side` enum('left','right') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
-  `type_ID` tinyint(4) NOT NULL default '0'
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `person_custom_master`
--- 
-
+  `type_ID` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `person_per`
--- 
+--
 
-CREATE TABLE `person_per` (
-  `per_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `per_Title` varchar(50) default NULL,
-  `per_FirstName` varchar(50) default NULL,
-  `per_MiddleName` varchar(50) default NULL,
-  `per_LastName` varchar(50) default NULL,
-  `per_Suffix` varchar(50) default NULL,
-  `per_Address1` varchar(50) default NULL,
-  `per_Address2` varchar(50) default NULL,
-  `per_City` varchar(50) default NULL,
-  `per_State` varchar(50) default NULL,
-  `per_Zip` varchar(50) default NULL,
-  `per_Country` varchar(50) default NULL,
-  `per_HomePhone` varchar(30) default NULL,
-  `per_WorkPhone` varchar(30) default NULL,
-  `per_CellPhone` varchar(30) default NULL,
-  `per_Email` varchar(50) default NULL,
-  `per_WorkEmail` varchar(50) default NULL,
-  `per_BirthMonth` tinyint(3) unsigned NOT NULL default '0',
-  `per_BirthDay` tinyint(3) unsigned NOT NULL default '0',
-  `per_BirthYear` year(4) default NULL,
-  `per_MembershipDate` date default NULL,
-  `per_Gender` tinyint(1) unsigned NOT NULL default '0',
-  `per_fmr_ID` tinyint(3) unsigned NOT NULL default '0',
-  `per_cls_ID` tinyint(3) unsigned NOT NULL default '0',
-  `per_fam_ID` smallint(5) unsigned NOT NULL default '0',
-  `per_Envelope` smallint(5) unsigned default NULL,
-  `per_DateLastEdited` datetime default NULL,
-  `per_DateEntered` datetime NOT NULL default '0000-00-00 00:00:00',
-  `per_EnteredBy` smallint(5) unsigned NOT NULL default '0',
-  `per_EditedBy` smallint(5) unsigned default '0',
-  `per_FriendDate` date default NULL,
-  `per_Flags` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`per_ID`),
+CREATE TABLE IF NOT EXISTS `person_per` (
+  `per_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `per_Title` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_FirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_MiddleName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_LastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Suffix` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Address1` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Address2` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_City` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_State` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Zip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_HomePhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_WorkPhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_CellPhone` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_Email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_WorkEmail` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `per_BirthMonth` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `per_BirthDay` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `per_BirthYear` year(4) DEFAULT NULL,
+  `per_MembershipDate` date DEFAULT NULL,
+  `per_Gender` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `per_fmr_ID` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `per_cls_ID` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `per_fam_ID` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `per_Envelope` smallint(5) unsigned DEFAULT NULL,
+  `per_DateLastEdited` datetime DEFAULT NULL,
+  `per_DateEntered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `per_EnteredBy` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `per_EditedBy` smallint(5) unsigned DEFAULT '0',
+  `per_FriendDate` date DEFAULT NULL,
+  `per_Flags` mediumint(9) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`per_ID`),
   KEY `per_ID` (`per_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
--- 
+--
 -- Dumping data for table `person_per`
--- 
+--
 
-INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES 
+INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES
 (1, NULL, 'ChurchInfo', NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0000, NULL, 0, 0, 0, 0, NULL, NULL, '2004-08-25 18:00:00', 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pledge_plg`
--- 
+--
 
-CREATE TABLE `pledge_plg` (
-  `plg_plgID` mediumint(9) NOT NULL auto_increment,
-  `plg_FamID` mediumint(9) default NULL,
-  `plg_FYID` mediumint(9) default NULL,
-  `plg_date` date default NULL,
-  `plg_amount` decimal(8,2) default NULL,
-  `plg_schedule` enum('Weekly', 'Monthly','Quarterly','Once','Other') default NULL,
-  `plg_method` enum('CREDITCARD','CHECK','CASH','BANKDRAFT','EGIVE') default NULL,
-  `plg_comment` text,
-  `plg_DateLastEdited` date NOT NULL default '0000-00-00',
-  `plg_EditedBy` mediumint(9) NOT NULL default '0',
-  `plg_PledgeOrPayment` enum('Pledge','Payment') NOT NULL default 'Pledge',
-  `plg_fundID` tinyint(3) unsigned default NULL,
-  `plg_depID` mediumint(9) unsigned default NULL,
-  `plg_CheckNo` bigint(16) unsigned default NULL,
-  `plg_Problem` tinyint(1) default NULL,
-  `plg_scanString` text,
-  `plg_aut_ID` mediumint(9) NOT NULL default '0',
-  `plg_aut_Cleared` tinyint(1) NOT NULL default '0',
-  `plg_aut_ResultID` mediumint(9) NOT NULL default '0',
+CREATE TABLE IF NOT EXISTS `pledge_plg` (
+  `plg_plgID` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `plg_FamID` mediumint(9) DEFAULT NULL,
+  `plg_FYID` mediumint(9) DEFAULT NULL,
+  `plg_date` date DEFAULT NULL,
+  `plg_amount` decimal(8,2) DEFAULT NULL,
+  `plg_schedule` enum('Weekly','Monthly','Quarterly','Once','Other') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `plg_method` enum('CREDITCARD','CHECK','CASH','BANKDRAFT','EGIVE') COLLATE utf8_unicode_ci DEFAULT NULL,
+  `plg_comment` text COLLATE utf8_unicode_ci,
+  `plg_DateLastEdited` date NOT NULL DEFAULT '0000-00-00',
+  `plg_EditedBy` mediumint(9) NOT NULL DEFAULT '0',
+  `plg_PledgeOrPayment` enum('Pledge','Payment') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Pledge',
+  `plg_fundID` tinyint(3) unsigned DEFAULT NULL,
+  `plg_depID` mediumint(9) unsigned DEFAULT NULL,
+  `plg_CheckNo` bigint(16) unsigned DEFAULT NULL,
+  `plg_Problem` tinyint(1) DEFAULT NULL,
+  `plg_scanString` text COLLATE utf8_unicode_ci,
+  `plg_aut_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `plg_aut_Cleared` tinyint(1) NOT NULL DEFAULT '0',
+  `plg_aut_ResultID` mediumint(9) NOT NULL DEFAULT '0',
   `plg_NonDeductible` decimal(8,2) NOT NULL,
-  `plg_GroupKey` VARCHAR( 64 ) NOT NULL,
-  PRIMARY KEY  (`plg_plgID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `pledge_plg`
--- 
-
+  `plg_GroupKey` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`plg_plgID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `propertytype_prt`
--- 
+--
 
-CREATE TABLE `propertytype_prt` (
-  `prt_ID` mediumint(9) NOT NULL auto_increment,
-  `prt_Class` varchar(10) NOT NULL default '',
-  `prt_Name` varchar(50) NOT NULL default '',
-  `prt_Description` text NOT NULL,
-  PRIMARY KEY  (`prt_ID`),
+CREATE TABLE IF NOT EXISTS `propertytype_prt` (
+  `prt_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `prt_Class` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `prt_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `prt_Description` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`prt_ID`),
   UNIQUE KEY `prt_ID` (`prt_ID`),
   KEY `prt_ID_2` (`prt_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
--- 
+--
 -- Dumping data for table `propertytype_prt`
--- 
+--
 
-INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES 
+INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
 (1, 'p', 'General', 'General Person Properties'),
 (2, 'f', 'General', 'General Family Properties'),
 (3, 'g', 'General', 'General Group Properties');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `property_pro`
--- 
+--
 
-CREATE TABLE `property_pro` (
-  `pro_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `pro_Class` varchar(10) NOT NULL default '',
-  `pro_prt_ID` mediumint(8) unsigned NOT NULL default '0',
-  `pro_Name` varchar(200) NOT NULL default '0',
-  `pro_Description` text NOT NULL,
-  `pro_Prompt` varchar(255) default NULL,
-  PRIMARY KEY  (`pro_ID`),
+CREATE TABLE IF NOT EXISTS `property_pro` (
+  `pro_ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `pro_Class` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `pro_prt_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `pro_Name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `pro_Description` text COLLATE utf8_unicode_ci NOT NULL,
+  `pro_Prompt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`pro_ID`),
   UNIQUE KEY `pro_ID` (`pro_ID`),
   KEY `pro_ID_2` (`pro_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
--- 
+--
 -- Dumping data for table `property_pro`
--- 
+--
 
-INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES 
+INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
 (1, 'p', 1, 'Disabled', 'has a disability.', 'What is the nature of the disability?'),
 (2, 'f', 2, 'Single Parent', 'is a single-parent household.', ''),
 (3, 'g', 3, 'Youth', 'is youth-oriented.', '');
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `queryparameteroptions_qpo`
--- 
+--
 
-CREATE TABLE `queryparameteroptions_qpo` (
-  `qpo_ID` smallint(5) unsigned NOT NULL auto_increment,
-  `qpo_qrp_ID` mediumint(8) unsigned NOT NULL default '0',
-  `qpo_Display` varchar(50) NOT NULL default '',
-  `qpo_Value` varchar(50) NOT NULL default '',
-  PRIMARY KEY  (`qpo_ID`),
+CREATE TABLE IF NOT EXISTS `queryparameteroptions_qpo` (
+  `qpo_ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `qpo_qrp_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `qpo_Display` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `qpo_Value` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`qpo_ID`),
   UNIQUE KEY `qpo_ID` (`qpo_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
 
--- 
+--
 -- Dumping data for table `queryparameteroptions_qpo`
--- 
+--
 
-INSERT INTO `queryparameteroptions_qpo` (`qpo_ID`, `qpo_qrp_ID`, `qpo_Display`, `qpo_Value`) VALUES 
+INSERT INTO `queryparameteroptions_qpo` (`qpo_ID`, `qpo_qrp_ID`, `qpo_Display`, `qpo_Value`) VALUES
 (1, 4, 'Male', '1'),
 (2, 4, 'Female', '2'),
 (3, 6, 'Male', '1'),
@@ -1035,37 +1033,37 @@ INSERT INTO `queryparameteroptions_qpo` (`qpo_ID`, `qpo_qrp_ID`, `qpo_Display`, 
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `queryparameters_qrp`
--- 
+--
 
-CREATE TABLE `queryparameters_qrp` (
-  `qrp_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `qrp_qry_ID` mediumint(8) unsigned NOT NULL default '0',
-  `qrp_Type` tinyint(3) unsigned NOT NULL default '0',
-  `qrp_OptionSQL` text,
-  `qrp_Name` varchar(25) default NULL,
-  `qrp_Description` text,
-  `qrp_Alias` varchar(25) default NULL,
-  `qrp_Default` varchar(25) default NULL,
-  `qrp_Required` tinyint(3) unsigned NOT NULL default '0',
-  `qrp_InputBoxSize` tinyint(3) unsigned NOT NULL default '0',
-  `qrp_Validation` varchar(5) NOT NULL default '',
-  `qrp_NumericMax` int(11) default NULL,
-  `qrp_NumericMin` int(11) default NULL,
-  `qrp_AlphaMinLength` int(11) default NULL,
-  `qrp_AlphaMaxLength` int(11) default NULL,
-  PRIMARY KEY  (`qrp_ID`),
+CREATE TABLE IF NOT EXISTS `queryparameters_qrp` (
+  `qrp_ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `qrp_qry_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `qrp_Type` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `qrp_OptionSQL` text COLLATE utf8_unicode_ci,
+  `qrp_Name` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qrp_Description` text COLLATE utf8_unicode_ci,
+  `qrp_Alias` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qrp_Default` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `qrp_Required` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `qrp_InputBoxSize` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `qrp_Validation` varchar(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `qrp_NumericMax` int(11) DEFAULT NULL,
+  `qrp_NumericMin` int(11) DEFAULT NULL,
+  `qrp_AlphaMinLength` int(11) DEFAULT NULL,
+  `qrp_AlphaMaxLength` int(11) DEFAULT NULL,
+  PRIMARY KEY (`qrp_ID`),
   UNIQUE KEY `qrp_ID` (`qrp_ID`),
   KEY `qrp_ID_2` (`qrp_ID`),
   KEY `qrp_qry_ID` (`qrp_qry_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=102 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=202 ;
 
--- 
+--
 -- Dumping data for table `queryparameters_qrp`
--- 
+--
 
-INSERT INTO `queryparameters_qrp` (`qrp_ID`, `qrp_qry_ID`, `qrp_Type`, `qrp_OptionSQL`, `qrp_Name`, `qrp_Description`, `qrp_Alias`, `qrp_Default`, `qrp_Required`, `qrp_InputBoxSize`, `qrp_Validation`, `qrp_NumericMax`, `qrp_NumericMin`, `qrp_AlphaMinLength`, `qrp_AlphaMaxLength`) VALUES 
+INSERT INTO `queryparameters_qrp` (`qrp_ID`, `qrp_qry_ID`, `qrp_Type`, `qrp_OptionSQL`, `qrp_Name`, `qrp_Description`, `qrp_Alias`, `qrp_Default`, `qrp_Required`, `qrp_InputBoxSize`, `qrp_Validation`, `qrp_NumericMax`, `qrp_NumericMin`, `qrp_AlphaMinLength`, `qrp_AlphaMaxLength`) VALUES
 (1, 4, 0, NULL, 'Minimum Age', 'The minimum age for which you want records returned.', 'min', '0', 0, 5, 'n', 120, 0, NULL, NULL),
 (2, 4, 0, NULL, 'Maximum Age', 'The maximum age for which you want records returned.', 'max', '120', 1, 5, 'n', 120, 0, NULL, NULL),
 (4, 6, 1, '', 'Gender', 'The desired gender to search the database for.', 'gender', '1', 1, 0, '', 0, 0, 0, 0),
@@ -1098,26 +1096,26 @@ INSERT INTO `queryparameters_qrp` (`qrp_ID`, `qrp_qry_ID`, `qrp_Type`, `qrp_Opti
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `query_qry`
--- 
+--
 
-CREATE TABLE `query_qry` (
-  `qry_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `qry_SQL` text NOT NULL,
-  `qry_Name` varchar(255) NOT NULL default '',
-  `qry_Description` text NOT NULL,
-  `qry_Count` tinyint(1) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`qry_ID`),
+CREATE TABLE IF NOT EXISTS `query_qry` (
+  `qry_ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `qry_SQL` text COLLATE utf8_unicode_ci NOT NULL,
+  `qry_Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `qry_Description` text COLLATE utf8_unicode_ci NOT NULL,
+  `qry_Count` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`qry_ID`),
   UNIQUE KEY `qry_ID` (`qry_ID`),
   KEY `qry_ID_2` (`qry_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=101 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=201 ;
 
--- 
+--
 -- Dumping data for table `query_qry`
--- 
+--
 
-INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qry_Count`) VALUES 
+INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qry_Count`) VALUES
 (2, 'SELECT COUNT(per_ID)\nAS ''Count''\nFROM person_per', 'Person Count', 'Returns the total number of people in the database.', 0),
 (3, 'SELECT CONCAT(''<a href=FamilyView.php?FamilyID='',fam_ID,''>'',fam_Name,''</a>'') AS ''Family Name'', COUNT(*) AS ''No.''\nFROM person_per\nINNER JOIN family_fam\nON fam_ID = per_fam_ID\nGROUP BY per_fam_ID\nORDER BY ''No.'' DESC', 'Family Member Count', 'Returns each family and the total number of people assigned to them.', 0),
 (4, 'SELECT per_ID as AddToCart,CONCAT(''<a\r\nhref=PersonView.php?PersonID='',per_ID,''>'',per_FirstName,''\r\n'',per_LastName,''</a>'') AS Name,\r\nCONCAT(per_BirthMonth,''/'',per_BirthDay,''/'',per_BirthYear) AS ''Birth Date'',\r\nDATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(CONCAT(per_BirthYear,''-'',per_BirthMonth,''-'',per_BirthDay))),''%Y'')+0 AS  ''Age''\r\nFROM person_per\r\nWHERE\r\nDATE_ADD(CONCAT(per_BirthYear,''-'',per_BirthMonth,''-'',per_BirthDay),INTERVAL\r\n~min~ YEAR) <= CURDATE()\r\nAND\r\nDATE_ADD(CONCAT(per_BirthYear,''-'',per_BirthMonth,''-'',per_BirthDay),INTERVAL\r\n(~max~ + 1) YEAR) >= CURDATE()', 'Person by Age', 'Returns any person records with ages between two given ages.', 1),
@@ -1140,81 +1138,71 @@ INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qr
 (28, 'SELECT fam_Name, a.plg_amount as PlgFY1, b.plg_amount as PlgFY2 from family_fam left join pledge_plg a on a.plg_famID = fam_ID and a.plg_FYID=~fyid1~ and a.plg_PledgeOrPayment=''Pledge'' left join pledge_plg b on b.plg_famID = fam_ID and b.plg_FYID=~fyid2~ and b.plg_PledgeOrPayment=''Pledge'' order by fam_Name', 'Pledge comparison', 'Compare pledges between two fiscal years', 1),
 (30, 'SELECT per_ID as AddToCart, CONCAT(per_FirstName,'' '',per_LastName) AS Name, fam_address1, fam_city, fam_state, fam_zip FROM person_per join family_fam on per_fam_id=fam_id where per_fmr_id<>3 and per_fam_id in (select fam_id from family_fam inner join pledge_plg a on a.plg_famID=fam_ID and a.plg_FYID=~fyid1~ and a.plg_amount>0) and per_fam_id not in (select fam_id from family_fam inner join pledge_plg b on b.plg_famID=fam_ID and b.plg_FYID=~fyid2~ and b.plg_amount>0)', 'Missing pledges', 'Find people who pledged one year but not another', 1),
 (31, 'select per_ID as AddToCart, per_FirstName, per_LastName, per_email from person_per, autopayment_aut where aut_famID=per_fam_ID and aut_CreditCard!="" and per_email!="" and (per_fmr_ID=1 or per_fmr_ID=2 or per_cls_ID=1)', 'Credit Card People', 'People who are configured to pay by credit card.', 0),
-(32, 'SELECT fam_Name, fam_Envelope, b.fun_Name as Fund_Name, a.plg_amount as Pledge from family_fam left join pledge_plg a on a.plg_famID = fam_ID and a.plg_FYID=~fyid~ and a.plg_PledgeOrPayment=\'Pledge\' and a.plg_amount>0 join donationfund_fun b on b.fun_ID = a.plg_fundID order by fam_Name, a.plg_fundID', 'Family Pledge by Fiscal Year', 'Pledge summary by family name for each fund for the selected fiscal year', 1),
+(32, 'SELECT fam_Name, fam_Envelope, b.fun_Name as Fund_Name, a.plg_amount as Pledge from family_fam left join pledge_plg a on a.plg_famID = fam_ID and a.plg_FYID=~fyid~ and a.plg_PledgeOrPayment=''Pledge'' and a.plg_amount>0 join donationfund_fun b on b.fun_ID = a.plg_fundID order by fam_Name, a.plg_fundID', 'Family Pledge by Fiscal Year', 'Pledge summary by family name for each fund for the selected fiscal year', 1),
 (100, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=PersonView.php?PersonID='',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name FROM person_per AS a LEFT JOIN person2volunteeropp_p2vo p2v1 ON (a.per_id = p2v1.p2vo_per_ID AND p2v1.p2vo_vol_ID = ~volopp1~) LEFT JOIN person2volunteeropp_p2vo p2v2 ON (a.per_id = p2v2.p2vo_per_ID AND p2v2.p2vo_vol_ID = ~volopp2~) WHERE p2v1.p2vo_per_ID=p2v2.p2vo_per_ID ORDER BY per_LastName', 'Volunteers', 'Find volunteers for who match two specific opportunity codes', 1),
 (200, 'SELECT a.per_ID as AddToCart, CONCAT(''<a href=PersonView.php?PersonID='',a.per_ID,''>'',a.per_FirstName,'' '',a.per_LastName,''</a>'') AS Name FROM person_per AS a LEFT JOIN person_custom pc ON a.per_id = pc.per_ID WHERE pc.~custom~=''~value~'' ORDER BY per_LastName', 'CustomSearch', 'Find people with a custom field value', 1);
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `record2property_r2p`
--- 
+--
 
-CREATE TABLE `record2property_r2p` (
-  `r2p_pro_ID` mediumint(8) unsigned NOT NULL default '0',
-  `r2p_record_ID` mediumint(8) unsigned NOT NULL default '0',
-  `r2p_Value` text NOT NULL
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `record2property_r2p`
--- 
-
+CREATE TABLE IF NOT EXISTS `record2property_r2p` (
+  `r2p_pro_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `r2p_record_ID` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `r2p_Value` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `result_res`
--- 
+--
 
-CREATE TABLE `result_res` (
-  `res_ID` mediumint(9) NOT NULL auto_increment,
-  `res_echotype1` text NOT NULL,
-  `res_echotype2` text NOT NULL,
-  `res_echotype3` text NOT NULL,
-  `res_authorization` text NOT NULL,
-  `res_order_number` text NOT NULL,
-  `res_reference` text NOT NULL,
-  `res_status` text NOT NULL,
-  `res_avs_result` text NOT NULL,
-  `res_security_result` text NOT NULL,
-  `res_mac` text NOT NULL,
-  `res_decline_code` text NOT NULL,
-  `res_tran_date` text NOT NULL,
-  `res_merchant_name` text NOT NULL,
-  `res_version` text NOT NULL,
-  `res_EchoServer` text NOT NULL,
-  PRIMARY KEY  (`res_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `result_res`
--- 
-
+CREATE TABLE IF NOT EXISTS `result_res` (
+  `res_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `res_echotype1` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_echotype2` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_echotype3` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_authorization` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_order_number` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_reference` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_status` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_avs_result` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_security_result` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_mac` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_decline_code` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_tran_date` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_merchant_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_version` text COLLATE utf8_unicode_ci NOT NULL,
+  `res_EchoServer` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`res_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `userconfig_ucfg`
--- 
+--
 
-CREATE TABLE `userconfig_ucfg` (
+CREATE TABLE IF NOT EXISTS `userconfig_ucfg` (
   `ucfg_per_id` mediumint(9) unsigned NOT NULL,
-  `ucfg_id` int(11) NOT NULL default '0',
-  `ucfg_name` varchar(50) NOT NULL default '',
-  `ucfg_value` text,
-  `ucfg_type` enum('text','number','date','boolean','textarea') NOT NULL default 'text',
-  `ucfg_tooltip` text NOT NULL,
-  `ucfg_permission` enum('FALSE','TRUE') NOT NULL default 'FALSE',
-  `ucfg_cat` varchar(20) NOT NULL,
-  PRIMARY KEY  (`ucfg_per_id`,`ucfg_id`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+  `ucfg_id` int(11) NOT NULL DEFAULT '0',
+  `ucfg_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `ucfg_value` text COLLATE utf8_unicode_ci,
+  `ucfg_type` enum('text','number','date','boolean','textarea') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `ucfg_tooltip` text COLLATE utf8_unicode_ci NOT NULL,
+  `ucfg_permission` enum('FALSE','TRUE') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'FALSE',
+  `ucfg_cat` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`ucfg_per_id`,`ucfg_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- 
+--
 -- Dumping data for table `userconfig_ucfg`
--- 
+--
 
-INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_value`, `ucfg_type`, `ucfg_tooltip`, `ucfg_permission`, `ucfg_cat`) VALUES 
+INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_value`, `ucfg_type`, `ucfg_tooltip`, `ucfg_permission`, `ucfg_cat`) VALUES
 (0, 0, 'bEmailMailto', '1', 'boolean', 'User permission to send email via mailto: links', 'TRUE', ''),
 (0, 1, 'sMailtoDelimiter', ',', 'text', 'Delimiter to separate emails in mailto: links', 'TRUE', ''),
 (0, 2, 'bSendPHPMail', '0', 'boolean', 'User permission to send email using PHPMailer', 'FALSE', ''),
@@ -1236,184 +1224,114 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `user_usr`
--- 
+--
 
-CREATE TABLE `user_usr` (
-  `usr_per_ID` mediumint(9) unsigned NOT NULL default '0',
-  `usr_Password` text NOT NULL default '',
-  `usr_NeedPasswordChange` tinyint(3) unsigned NOT NULL default '1',
-  `usr_LastLogin` datetime NOT NULL default '0000-00-00 00:00:00',
-  `usr_LoginCount` smallint(5) unsigned NOT NULL default '0',
-  `usr_FailedLogins` tinyint(3) unsigned NOT NULL default '0',
-  `usr_AddRecords` tinyint(3) unsigned NOT NULL default '0',
-  `usr_EditRecords` tinyint(3) unsigned NOT NULL default '0',
-  `usr_DeleteRecords` tinyint(3) unsigned NOT NULL default '0',
-  `usr_MenuOptions` tinyint(3) unsigned NOT NULL default '0',
-  `usr_ManageGroups` tinyint(3) unsigned NOT NULL default '0',
-  `usr_Finance` tinyint(3) unsigned NOT NULL default '0',
-  `usr_Communication` tinyint(3) unsigned NOT NULL default '0',
-  `usr_Notes` tinyint(3) unsigned NOT NULL default '0',
-  `usr_Admin` tinyint(3) unsigned NOT NULL default '0',
-  `usr_Workspacewidth` smallint(6) default NULL,
-  `usr_BaseFontSize` tinyint(4) default NULL,
-  `usr_SearchLimit` tinyint(4) default '10',
-  `usr_Style` varchar(50) default 'Style.css',
-  `usr_showPledges` tinyint(1) NOT NULL default '0',
-  `usr_showPayments` tinyint(1) NOT NULL default '0',
-  `usr_showSince` date NOT NULL default '0000-00-00',
-  `usr_defaultFY` mediumint(9) NOT NULL default '10',
-  `usr_currentDeposit` mediumint(9) NOT NULL default '0',
-  `usr_UserName` varchar(32) default NULL,
-  `usr_EditSelf` tinyint(3) unsigned NOT NULL default '0',
-  `usr_CalStart` date default NULL,
-  `usr_CalEnd` date default NULL,
-  `usr_CalNoSchool1` date default NULL,
-  `usr_CalNoSchool2` date default NULL,
-  `usr_CalNoSchool3` date default NULL,
-  `usr_CalNoSchool4` date default NULL,
-  `usr_CalNoSchool5` date default NULL,
-  `usr_CalNoSchool6` date default NULL,
-  `usr_CalNoSchool7` date default NULL,
-  `usr_CalNoSchool8` date default NULL,
-  `usr_SearchFamily` tinyint(3) default NULL,
-  `usr_Canvasser` tinyint(3) NOT NULL default '0',
-  PRIMARY KEY  (`usr_per_ID`),
+CREATE TABLE IF NOT EXISTS `user_usr` (
+  `usr_per_ID` mediumint(9) unsigned NOT NULL DEFAULT '0',
+  `usr_Password` text COLLATE utf8_unicode_ci NOT NULL,
+  `usr_NeedPasswordChange` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `usr_LastLogin` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `usr_LoginCount` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `usr_FailedLogins` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_AddRecords` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_EditRecords` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_DeleteRecords` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_MenuOptions` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_ManageGroups` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_Finance` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_Communication` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_Notes` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_Admin` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_Workspacewidth` smallint(6) DEFAULT NULL,
+  `usr_BaseFontSize` tinyint(4) DEFAULT NULL,
+  `usr_SearchLimit` tinyint(4) DEFAULT '10',
+  `usr_Style` varchar(50) COLLATE utf8_unicode_ci DEFAULT 'Style.css',
+  `usr_showPledges` tinyint(1) NOT NULL DEFAULT '0',
+  `usr_showPayments` tinyint(1) NOT NULL DEFAULT '0',
+  `usr_showSince` date NOT NULL DEFAULT '0000-00-00',
+  `usr_defaultFY` mediumint(9) NOT NULL DEFAULT '10',
+  `usr_currentDeposit` mediumint(9) NOT NULL DEFAULT '0',
+  `usr_UserName` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `usr_EditSelf` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `usr_CalStart` date DEFAULT NULL,
+  `usr_CalEnd` date DEFAULT NULL,
+  `usr_CalNoSchool1` date DEFAULT NULL,
+  `usr_CalNoSchool2` date DEFAULT NULL,
+  `usr_CalNoSchool3` date DEFAULT NULL,
+  `usr_CalNoSchool4` date DEFAULT NULL,
+  `usr_CalNoSchool5` date DEFAULT NULL,
+  `usr_CalNoSchool6` date DEFAULT NULL,
+  `usr_CalNoSchool7` date DEFAULT NULL,
+  `usr_CalNoSchool8` date DEFAULT NULL,
+  `usr_SearchFamily` tinyint(3) DEFAULT NULL,
+  `usr_Canvasser` tinyint(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`usr_per_ID`),
   UNIQUE KEY `usr_UserName` (`usr_UserName`),
   KEY `usr_per_ID` (`usr_per_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- 
--- Dumping data for table `user_usr`
--- 
-
-INSERT INTO `user_usr` (`usr_per_ID`, `usr_Password`, `usr_NeedPasswordChange`, `usr_LastLogin`, 
-`usr_LoginCount`, `usr_FailedLogins`, `usr_AddRecords`, `usr_EditRecords`, `usr_DeleteRecords`, 
-`usr_MenuOptions`, `usr_ManageGroups`, `usr_Finance`, `usr_Communication`, `usr_Notes`, `usr_Admin`, 
-`usr_Workspacewidth`, `usr_BaseFontSize`, `usr_SearchLimit`, `usr_Style`, `usr_showPledges`, 
-`usr_showPayments`, `usr_showSince`, `usr_defaultFY`, `usr_currentDeposit`, `usr_UserName`, `usr_EditSelf`, 
-`usr_CalStart`, `usr_CalEnd`, `usr_CalNoSchool1`, `usr_CalNoSchool2`, `usr_CalNoSchool3`, `usr_CalNoSchool4`, 
-`usr_CalNoSchool5`, `usr_CalNoSchool6`, `usr_CalNoSchool7`, `usr_CalNoSchool8`, `usr_SearchFamily`, 
-`usr_Canvasser`) 
-VALUES 
-(1, '1a7ac1b904382aaf0ac67b4f00e7b93f', 1, '0000-00-00 00:00:00', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 580, 9, 10, 'Style.css', 0, 0, '0000-00-00', 10, 0, 'Admin', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `version_ver`
--- 
-
-CREATE TABLE `version_ver` (
-  `ver_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `ver_version` varchar(50) NOT NULL default '',
-  `ver_date` datetime default NULL,
-  PRIMARY KEY  (`ver_ID`),
-  UNIQUE KEY `ver_version` (`ver_version`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=3 ;
-
--- 
--- Dumping data for table `version_ver`
--- 
-
-INSERT INTO `version_ver` (`ver_version`, `ver_date`) VALUES 
-('1.2.13', NOW() );
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `volunteeropportunity_vol`
--- 
-
-CREATE TABLE `volunteeropportunity_vol` (
-  `vol_ID` int(3) NOT NULL auto_increment,
-  `vol_Order` int(3) NOT NULL default '0', 
-  `vol_Active` enum('true','false') NOT NULL default 'true',
-  `vol_Name` varchar(30) default NULL,
-  `vol_Description` varchar(100) default NULL,
-  PRIMARY KEY  (`vol_ID`),
-  UNIQUE KEY `vol_ID` (`vol_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `volunteeropportunity_vol`
--- 
-
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `whycame_why`
--- 
-
-CREATE TABLE `whycame_why` (
-  `why_ID` mediumint(9) NOT NULL auto_increment,
-  `why_per_ID` mediumint(9) NOT NULL default '0',
-  `why_join` text NOT NULL,
-  `why_come` text NOT NULL,
-  `why_suggest` text NOT NULL,
-  `why_hearOfUs` text NOT NULL,
-  PRIMARY KEY  (`why_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Fundraiser support added 4/11/2009 Michael Wilt
--- 
+-- Dumping data for table `user_usr`
+--
 
-CREATE TABLE `paddlenum_pn` (
-  `pn_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `pn_fr_ID` mediumint(9) unsigned,
-  `pn_Num` mediumint(9) unsigned,
-  `pn_per_ID` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`pn_ID`),
-  UNIQUE KEY `pn_ID` (`pn_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+INSERT INTO `user_usr` (`usr_per_ID`, `usr_Password`, `usr_NeedPasswordChange`, `usr_LastLogin`, `usr_LoginCount`, `usr_FailedLogins`, `usr_AddRecords`, `usr_EditRecords`, `usr_DeleteRecords`, `usr_MenuOptions`, `usr_ManageGroups`, `usr_Finance`, `usr_Communication`, `usr_Notes`, `usr_Admin`, `usr_Workspacewidth`, `usr_BaseFontSize`, `usr_SearchLimit`, `usr_Style`, `usr_showPledges`, `usr_showPayments`, `usr_showSince`, `usr_defaultFY`, `usr_currentDeposit`, `usr_UserName`, `usr_EditSelf`, `usr_CalStart`, `usr_CalEnd`, `usr_CalNoSchool1`, `usr_CalNoSchool2`, `usr_CalNoSchool3`, `usr_CalNoSchool4`, `usr_CalNoSchool5`, `usr_CalNoSchool6`, `usr_CalNoSchool7`, `usr_CalNoSchool8`, `usr_SearchFamily`, `usr_Canvasser`) VALUES
+(1, 'd7e629613b7189b44a4e932adbc6b3ad6f9559c4c98c7067a8f298f6f330ab9e', 0, '2014-04-09 16:53:23', 8, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 580, 9, 10, 'Style.css', 0, 0, '0000-00-00', 10, 0, 'Admin', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);
 
-CREATE TABLE `fundraiser_fr` (
-  `fr_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `fr_date` date default NULL,
-  `fr_title` varchar(128) NOT NULL,
-  `fr_description` text,
-  `fr_EnteredBy` smallint(5) unsigned NOT NULL default '0',
-  `fr_EnteredDate` date NOT NULL,
-  PRIMARY KEY  (`fr_ID`),
-  UNIQUE KEY `fr_ID` (`fr_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+-- --------------------------------------------------------
 
-CREATE TABLE `donateditem_di` (
-  `di_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `di_item` varchar(32) NOT NULL,
-  `di_FR_ID` mediumint(9) unsigned NOT NULL,
-  `di_donor_ID` mediumint(9) NOT NULL default '0',
-  `di_buyer_ID` mediumint(9) NOT NULL default '0',
-  `di_multibuy` smallint(1) NOT NULL default '0',
-  `di_title` varchar(128) NOT NULL,
-  `di_description` text,
-  `di_sellprice` decimal(8,2) default NULL,
-  `di_estprice` decimal(8,2) default NULL,
-  `di_minimum` decimal(8,2) default NULL,
-  `di_materialvalue` decimal(8,2) default NULL,
-  `di_EnteredBy` smallint(5) unsigned NOT NULL default '0',
-  `di_EnteredDate` date NOT NULL,
-  PRIMARY KEY  (`di_ID`),
-  UNIQUE KEY `di_ID` (`di_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+--
+-- Table structure for table `version_ver`
+--
 
-CREATE TABLE `multibuy_mb` (
-  `mb_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `mb_per_ID` mediumint(9) NOT NULL default '0',
-  `mb_item_ID` mediumint(9) NOT NULL default '0',
-  `mb_count` decimal(8,0) default NULL,
-  PRIMARY KEY  (`mb_ID`),
-  UNIQUE KEY `mb_ID` (`mb_ID`)
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `version_ver` (
+  `ver_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `ver_version` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `ver_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`ver_ID`),
+  UNIQUE KEY `ver_version` (`ver_version`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
-CREATE TABLE `egive_egv` (
-  `egv_egiveID` varchar(16) character set utf8 NOT NULL,
-  `egv_famID` int(11) NOT NULL,
-  `egv_DateEntered` datetime NOT NULL,
-  `egv_DateLastEdited` datetime NOT NULL,
-  `egv_EnteredBy` smallint(6) NOT NULL default '0',
-  `egv_EditedBy` smallint(6) NOT NULL default '0'
-) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+--
+-- Dumping data for table `version_ver`
+--
+
+INSERT INTO `version_ver` (`ver_ID`, `ver_version`, `ver_date`) VALUES
+(3, '1.2.13', '2014-04-09 16:13:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `volunteeropportunity_vol`
+--
+
+CREATE TABLE IF NOT EXISTS `volunteeropportunity_vol` (
+  `vol_ID` int(3) NOT NULL AUTO_INCREMENT,
+  `vol_Order` int(3) NOT NULL DEFAULT '0',
+  `vol_Active` enum('true','false') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'true',
+  `vol_Name` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vol_Description` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`vol_ID`),
+  UNIQUE KEY `vol_ID` (`vol_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `whycame_why`
+--
+
+CREATE TABLE IF NOT EXISTS `whycame_why` (
+  `why_ID` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `why_per_ID` mediumint(9) NOT NULL DEFAULT '0',
+  `why_join` text COLLATE utf8_unicode_ci NOT NULL,
+  `why_come` text COLLATE utf8_unicode_ci NOT NULL,
+  `why_suggest` text COLLATE utf8_unicode_ci NOT NULL,
+  `why_hearOfUs` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`why_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
