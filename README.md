@@ -8,3 +8,5 @@ Initial password
 Log in with user name "admin", password "churchinfoadmin"
 
 admin2014
+..
+please report bugs
